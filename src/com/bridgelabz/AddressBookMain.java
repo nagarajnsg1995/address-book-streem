@@ -7,12 +7,10 @@ import java.util.Scanner;
 
 public class AddressBookMain {
 
-    /**
-     * create method choose() to select any of the option
-     */
+
     public void choose() {
-        MultipleAddressBook obj1 = new MultipleAddressBook();
-        AddressBook obj2 = new AddressBook();
+        MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
+        AddressBook addressBook = new AddressBook();
         while (true) {
             System.out.println(
                     "Enter \n 1. To add The new AddressBook\n 2. To do AddressBook functions\n 3. To delete the AddressBook\n "
@@ -21,22 +19,22 @@ public class AddressBookMain {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    obj1.addAddressBook();
+                    multipleAddressBook.addAddressBook();
                     break;
                 case 2:
-                    obj1.addressBookFunctions();
+                    multipleAddressBook.addressBookFunctions();
                     break;
                 case 3:
-                    obj1.deleteBook();
+                    multipleAddressBook.deleteBook();
                     break;
                 case 4:
-                    obj1.printBook();
+                    multipleAddressBook.printBook();
                     break;
                 case 5:
-                    obj1.printContactsInBook();
+                    multipleAddressBook.printContactsInBook();
                     break;
                 case 6:
-                    obj2.viewByOptions();
+                    addressBook.viewByOptions();
                     break;
                 case 0:
                     System.exit(0);
@@ -47,21 +45,15 @@ public class AddressBookMain {
         }
     }
 
-    /**
-     * Main method for manipulation AddressBookCollection
-     *
-     * @param args - Default Java param (Not used)
-     */
+
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book Program");
         Scanner Scan = new Scanner(System.in);
 
-        /**
-         * try and catch block will be uses to handle exception
-         */
+
         try {
             InputStream inputStream = new FileInputStream(
-                    "C:\\Users\\Nagu\\eclipse-workspace\\addressbook-system-io\\src\\com\\bridgelabz\\addressbook");
+                    "C:\\Users\\Nagaraj\\ideaProjects\\address-book-streem\\src\\com\\bridgelabz");
             int byteData = inputStream.read();
             if (byteData != -1) {
                 System.out.println(byteData);
@@ -70,13 +62,9 @@ public class AddressBookMain {
             e2.printStackTrace();
         }
 
-        /**
-         * try and catch block will be uses to handle exception if file is created then
-         * it will check it is exist or not if exist then display file successfully
-         * created otherwise catch exception
-         */
+
         File file = new File(
-                "C:\\Users\\Nagu\\eclipse-workspace\\addressbook-system-io\\src\\com\\bridgelabz\\addressbook");
+                "C:\\Users\\Nagaraj\\ideaProjects\\address-book-streem\\src\\com\\bridgelabz");
         try {
             boolean isFileCreated = file.createNewFile();
             if (isFileCreated) {
@@ -89,9 +77,7 @@ public class AddressBookMain {
         }
         AddressBookMain addressBookMain = new AddressBookMain();
 
-        /**
-         * calling choose() method
-         */
+
         addressBookMain.choose();
     }
 }
