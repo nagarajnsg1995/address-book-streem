@@ -1,6 +1,8 @@
 package com.bridgelabz;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -10,8 +12,8 @@ public class AddressBook {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number of contacts you want to enter");
         int number = scanner.nextInt();
-        for (int i = 0; i < number; i++) {
 
+        for (int i = 0; i < number; i++) {
             System.out.println("Enter the first name of person");
             String fName = scanner.next();
 
@@ -70,6 +72,16 @@ public class AddressBook {
             System.out.println("Search result: " + contact);
         }
     }
+    public void countContactsByUsingCity(String cityName) {
+        long count = 0;
+        long count1 = contactDetailsList.stream().filter(g -> g.getCity().equalsIgnoreCase(cityName)).count();
+        for (ContactDetails contact : contactDetailsList) {
+            count1 = count1 + count;
+        }
+        System.out.println("Contact List :" + count1);
+
+    }
+
     public void editContact() {
         System.out.println("Enter firstname of contact you want edit");
         Scanner scanner = new Scanner(System.in);
@@ -146,6 +158,8 @@ public class AddressBook {
             }
         }
     }
+
+
     public void deleteContact() {
         System.out.println("Enter the first name of contact you want to delete");
         Scanner scanner = new Scanner(System.in);
@@ -159,6 +173,8 @@ public class AddressBook {
             }
         }
     }
+
+
     public void viewByOptions() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
